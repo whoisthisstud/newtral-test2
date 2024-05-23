@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'newtral' => [
+        'token' => env('NEWTRAL_TOKEN'),
+        'host' => env('NEWTRAL_HOST'),
+    ],
+
 ];
