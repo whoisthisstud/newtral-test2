@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\NewtralTestService;
+use App\Facades\NewtralTest;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -15,7 +15,7 @@ class NewtralUniqueClientsFromLoadsController extends Controller
     public function __invoke(Request $request)
     {
         try {
-            $loads = $request->loads ?? (new NewtralTestService())->getLoads();
+            $loads = $request->loads ?? NewtralTest::getLoads();
         }
         catch ( Exception $e ) {
             Log::warning('Error getting data from Newtral: ' . $e->getMessage());
